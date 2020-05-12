@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@types/node": "^13.13.5",
+    "aws-sdk": "^2.674.0",
+    "graphql-request": "^1.8.2",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.8.3"
+  }
+}
