@@ -1,6 +1,6 @@
 const AWS = require("aws-sdk");
 const urlParse = require("url").URL;
-const appsyncUrl = "http://127.0.0.1:20002/graphql";
+const appsyncUrl = process.env.API_JOURNELYV2GQL_GRAPHQLAPIENDPOINTOUTPUT;
 const region = "us-east-1";
 const endpoint = new urlParse(appsyncUrl).hostname.toString();
 const {GraphQLClient} = require("graphql-request");
