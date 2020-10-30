@@ -1,12 +1,24 @@
 const gcalConfig = require("../config/gCalConfig.json");
 const calendarEvent = require("../schema/celandarSchema.json");
+
+// mappper for all configs 
+const configMapper ={
+  calendar:gcalConfig,
+}
+//mappper for all schemas
+const schemaMapper ={
+  calendar:calendarEvent
+}
 const _ = require("lodash")
-module.exports.mapper = (payload) => {
-  let finalResp = [];
-  let config = gcalConfig;
+module.exports.mapper = ({payload,schemaName}) => {
+  console.log(schemaName)
   let newResp 
+  let finalResp = [];
+  //map appropriate config based on name
+  let config = configMapper[schemaName];
   for (let i = 0; i < payload.length; i++) {
-    newResp = _.cloneDeep(calendarEvent)
+    // map appropriate schema based on name
+    newResp = _.cloneDeep(schemaMapper[schemaName])
     finalResp.push(iterate(payload[i], ""));
   }
 
@@ -17,7 +29,7 @@ module.exports.mapper = (payload) => {
       } else {
         let key = stack + "." + property;
         key = key.replace(".", "");
-        if (config[key] !== undefined && config[key].targetField && calendarEvent[config[key].targetField]) {
+        if (config[key] !== undefined && config[key].targetField && schemaMapper[schemaName][config[key].targetField]) {
           newResp[config[key].targetField] = obj[property];
         } else {
           newResp[key] = obj[key];
