@@ -26,6 +26,13 @@ module.exports.mapper = (payload) => {
     }
     return newResp;
   }
+  for (let i = 0; i < finalResp.length; i++) {
+    for (let [key, value] of Object.entries(finalResp[i])) {
+      if (value !== undefined && (value === "string" || value === "number" || value === "datetime" || value === "boolean")) {
+        finalResp[i][key] = null;
+      }
+    }
+  }
 
   return finalResp;
 };

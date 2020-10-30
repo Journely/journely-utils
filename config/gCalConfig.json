@@ -31,5 +31,9 @@
 	"creator.email":{
 		"targetField":"sender",
 		"type":"string"
+	},
+	"attendees":{
+		"targetField":"recipient",
+		"type":"array"
 	}
 }

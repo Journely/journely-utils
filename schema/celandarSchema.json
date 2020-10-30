@@ -5,7 +5,7 @@
     "content": "string:*",
     "url": "string",
     "sender": "string:*",
-    "recipient": "string",
+    "recipient": "array",
     "sendOnDate": "datetime",
     "dateSent": "datetime",
     "startDateTime": "datetime",
