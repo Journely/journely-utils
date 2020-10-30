@@ -10,7 +10,7 @@ const schemaMapper ={
   calendar:calendarEvent
 }
 const _ = require("lodash")
-module.exports.mapper = ({payload,schemaName}) => {
+module.exports.mapper = (payload,schemaName) => {
   console.log(schemaName)
   let newResp 
   let finalResp = [];

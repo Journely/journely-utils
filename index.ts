@@ -6,7 +6,7 @@ module.exports.gql = async (input) => {
   return data;
 };
 
-module.exports.mapper = ({payload})=>{
-  return mapper(payload);
+module.exports.mapper = ({payload,schemaName})=>{
+  return mapper(payload,schemaName);
 }
 
