@@ -1,0 +1,21 @@
+{
+    "_typeName": "CalendarEvent",
+    "_id": "string:*",
+    "title": "string:*",
+    "content": "string:*",
+    "url": "string",
+    "sender": "string:*",
+    "recipient": "string",
+    "sendOnDate": "datetime",
+    "dateSent": "datetime",
+    "startDateTime": "datetime",
+    "endDateTime": "datetime",
+    "repeat": "boolean",
+    "repeatStartDateTime": "datetime",
+    "repeatEndDateTime": "datetime",
+    "location": "string",
+    "timezoneOffset": "string"
+  }
+  
+  
+  
