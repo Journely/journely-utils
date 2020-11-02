@@ -12,5 +12,5 @@ module.exports.mapper = (payload, config, schema)=>{
 };
 
 module.exports.demapper = (payload, config)=>{
-  return mapper(payload, config);
+  return demapper(payload, config);
 };
