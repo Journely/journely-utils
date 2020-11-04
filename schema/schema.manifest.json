@@ -1,0 +1,46 @@
+{
+    "Company": {
+      "_typeName": "Company",
+      "aliases": [],
+      "schemaUrl": "",
+      "compatibilty": []
+    },
+    "EmailMessage": {
+      "_typeName": "EmailMessage",
+      "aliases": [],
+      "schemaUrl": "",
+      "compatibilty": []
+    },
+    "NewsArticle": {
+      "_typeName": "NewsArticle",
+      "aliases": [],
+      "schemaUrl": "https://generic-schema.s3.us-east-2.amazonaws.com/news.json",
+      "compatibilty": []
+    },
+    "Person": {
+      "_typeName": "Person",
+      "aliases": ["Contact"],
+      "schemaUrl": "",
+      "compatibilty": []
+    },
+    "File": {
+      "_typeName": "File",
+      "aliases": [],
+      "schemaUrl": "https://generic-schema.s3.us-east-2.amazonaws.com/file.json",
+      "compatibilty": []
+    },
+    "CalendarEvent": {
+      "_typeName": "CalendarEvent",
+      "aliases": [],
+      "schemaUrl": "https://generic-schema.s3.us-east-2.amazonaws.com/calendar.json",
+      "compatibilty": []
+    },
+    "Contact":{
+        "_typeName":"Contact",
+        "aliases": [],
+        "schemaUrl": "https://generic-schema.s3.us-east-2.amazonaws.com/contact.json",
+        "compatibilty": []
+    },
+    "Task": {}
+  }
+  

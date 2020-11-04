@@ -1,9 +1,19 @@
 const _ = require("lodash");
+const axios = require('axios');
 const DataObjectParser = require("dataobject-parser");
 const dataTypes = ["string", "datetime", "boolean", "number", "array", "object"];
-module.exports.mapper = (payload, config, schema) => {
+const schemaManifest = require("../schema/schema.manifest.json");
+module.exports.mapper = async (payload, config, schemaType) => {
     let resp;
     let finalResp = [];
+    if(!schemaType){
+      return {
+          "error": true,
+          "message": "Schema type is required"
+      }
+    }
+    let schemaDetails = schemaManifest[schemaType];
+    let schema = null;
     if (!payload || payload.length === 0) {
         return {
             "error": true,
@@ -15,6 +25,14 @@ module.exports.mapper = (payload, config, schema) => {
             "error": true,
             "message": "Config is required"
         }
+    }
+    if(schemaDetails && schemaDetails.schemaUrl){
+        console.time("getSchemaFromS3");
+        const res = await axios.get(schemaDetails.schemaUrl);
+        if(res.data){
+            schema = res.data;
+        }
+        console.timeEnd("getSchemaFromS3");
     }
     if (!schema) {
         return {

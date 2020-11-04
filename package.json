@@ -9,11 +9,11 @@
   "private": true,
   "dependencies": {
     "@types/node": "^13.13.5",
-    "aws-sdk": "^2.674.0",
+    "axios": "^0.21.0",
+    "dataobject-parser": "^1.2.1",
     "graphql-request": "^1.8.2",
     "lodash": "^4.17.20",
     "ts-node": "^8.10.1",
-    "typescript": "^3.8.3",
-    "dataobject-parser": "^1.2.1"
+    "typescript": "^3.8.3"
   }
 }
