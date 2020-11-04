@@ -49,7 +49,7 @@ module.exports.mapper = async (payload, config, schemaType) => {
           }
         }
         let structured = DataObjectParser.transpose(result);
-        finalResp.push(structured);
+        finalResp.push(structured._data);
     }
 
     function iterate(obj, stack) {
