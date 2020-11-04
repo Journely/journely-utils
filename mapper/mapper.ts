@@ -1,5 +1,6 @@
-const _ = require("lodash")
-
+const _ = require("lodash");
+const DataObjectParser = require("dataobject-parser");
+const dataTypes = ["string", "datetime", "boolean", "number", "array", "object"];
 module.exports.mapper = (payload, config, schema) => {
     let resp;
     let finalResp = [];
@@ -25,11 +26,12 @@ module.exports.mapper = (payload, config, schema) => {
         resp = _.cloneDeep(schema);
         let result = iterate(payload[i], "");
         for (let [key, value] of Object.entries(result)) {
-            if (value !== undefined && (value === "string" || value === "number" || value === "datetime" || value === "boolean") || value === "array" || value === "object") {
-                result[key] = null;
-            }
+          if (value !== undefined && typeof value === 'string' && dataTypes.indexOf(value.toLowerCase().trim()) !== -1) {
+            result[key] = null;
+          }
         }
-        finalResp.push(result);
+        let structured = DataObjectParser.transpose(result);
+        finalResp.push(structured);
     }
 
     function iterate(obj, stack) {
