@@ -25,10 +25,11 @@ module.exports.demapper = (payload, config) => {
     }
 
     function deMap(payload) {
-        let resp = {};
+        let resp = payload;
         for (let [configKey, configValue] of Object.entries(config)) {
             if (payload[configValue.targetField] || payload[configValue.targetField] === null) {
                 resp[configKey] = payload[configValue.targetField];
+                delete resp[configValue.targetField];
             }
         }
         return resp;

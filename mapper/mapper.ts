@@ -63,8 +63,7 @@ module.exports.mapper = async (payload, config, schemaType) => {
                 if (config[key] !== undefined && config[key].targetField && schema[config[key].targetField]) {
                     resp[config[key].targetField] = obj[property];
                 } else {
-                    resp.customFields[key] = obj[key];
-                    //resp[key] = obj[key];
+                    resp.customFields[key] = obj[property];
                 }
             }
         }
