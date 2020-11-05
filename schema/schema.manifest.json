@@ -41,6 +41,12 @@
         "schemaUrl": "https://generic-schema.s3.us-east-2.amazonaws.com/contact.json",
         "compatibilty": []
     },
+    "Opportunity":{
+      "_typeName":"Opportunity",
+      "aliases": [],
+      "schemaUrl": "https://generic-schema.s3.us-east-2.amazonaws.com/opportunity.json",
+      "compatibilty": []
+  },
     "Task": {}
   }
   
