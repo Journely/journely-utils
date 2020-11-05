@@ -15,6 +15,10 @@ module.exports.demapper = (payload, config) => {
         }
     }
     for (let i = 0; i < payload.length; i++) {
+        payload[i] = {
+            ...payload[i], ...payload[i].customFields
+        };
+        delete payload[i].customFields;
         let result = deMap(payload[i]);
         let structured = DataObjectParser.transpose(result);
         finalResp.push(structured._data);

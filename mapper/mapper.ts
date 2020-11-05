@@ -19,7 +19,7 @@ module.exports.mapper = async (payload, config, schemaType) => {
             "error": true,
             "message": "Payload is required"
         }
-    }
+    } 
     if (!config) {
         return {
             "error": true,
@@ -40,6 +40,7 @@ module.exports.mapper = async (payload, config, schemaType) => {
             "message": "Schemma is required"
         }
     }
+    schema.customFields = {};
     for (let i = 0; i < payload.length; i++) {
         resp = _.cloneDeep(schema);
         let result = iterate(payload[i], "");
@@ -62,7 +63,8 @@ module.exports.mapper = async (payload, config, schemaType) => {
                 if (config[key] !== undefined && config[key].targetField && schema[config[key].targetField]) {
                     resp[config[key].targetField] = obj[property];
                 } else {
-                    resp[key] = obj[key];
+                    resp.customFields[key] = obj[key];
+                    //resp[key] = obj[key];
                 }
             }
         }
