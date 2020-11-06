@@ -19,8 +19,8 @@
     },
     "Person": {
       "_typeName": "Person",
-      "aliases": ["Contact"],
-      "schemaUrl": "",
+      "aliases": ["Contact", "Lead"],
+      "schemaUrl": "https://generic-schema.s3.us-east-2.amazonaws.com/person.json",
       "compatibilty": []
     },
     "File": {
@@ -34,12 +34,6 @@
       "aliases": [],
       "schemaUrl": "https://generic-schema.s3.us-east-2.amazonaws.com/calendar.json",
       "compatibilty": []
-    },
-    "Contact":{
-        "_typeName":"Contact",
-        "aliases": [],
-        "schemaUrl": "https://generic-schema.s3.us-east-2.amazonaws.com/contact.json",
-        "compatibilty": []
     },
     "Opportunity":{
       "_typeName":"Opportunity",

@@ -12,18 +12,11 @@ module.exports.mapper = async (payload, config, schemaType) => {
           "message": "Schema type is required"
       }
     }
-    let schemaDetails = schemaManifest[schemaType];
+    let schemaDetails = null;
     let schema = null;
-    if (!payload || payload.length === 0) {
-        return {
-            "error": true,
-            "message": "Payload is required"
-        }
-    } 
-    if (!config) {
-        return {
-            "error": true,
-            "message": "Config is required"
+    for (let [key, value] of Object.entries(schemaManifest)) {
+        if(value.schemaUrl && (key === schemaType || value.aliases.includes(schemaType))){
+            schemaDetails = value;
         }
     }
     if(schemaDetails && schemaDetails.schemaUrl){
@@ -40,12 +33,24 @@ module.exports.mapper = async (payload, config, schemaType) => {
             "message": "Schemma is required"
         }
     }
+    if (!payload || payload.length === 0) {
+        return {
+            "error": true,
+            "message": "Payload is required"
+        }
+    } 
+    if (!config) {
+        return {
+            "error": true,
+            "message": "Config is required"
+        }
+    }
     schema.customFields = {};
     for (let i = 0; i < payload.length; i++) {
         resp = _.cloneDeep(schema);
         let result = iterate(payload[i], "");
         for (let [key, value] of Object.entries(result)) {
-          if (value !== undefined && typeof value === 'string' && dataTypes.indexOf(value.toLowerCase().trim()) !== -1) {
+          if (value !== undefined && typeof value === 'string' && dataTypes.includes(value.toLowerCase().trim())) {
             result[key] = null;
           }
         }
@@ -67,6 +72,8 @@ module.exports.mapper = async (payload, config, schemaType) => {
                 }
             }
         }
+        let customFields = DataObjectParser.transpose(resp.customFields);
+        resp.customFields = customFields._data;
         return resp;
     }
     return {
