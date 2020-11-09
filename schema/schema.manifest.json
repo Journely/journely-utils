@@ -53,6 +53,12 @@
     "schemaUrl": "https://generic-schema.s3.us-east-2.amazonaws.com/account.json",
     "compatibilty": []
   },
+  "Ticket": {
+    "_typeName": "Ticket",
+    "aliases": [],
+    "schemaUrl": "https://generic-schema.s3.us-east-2.amazonaws.com/ticket.json",
+    "compatibilty": []
+  },
     "Task": {}
   }
   
