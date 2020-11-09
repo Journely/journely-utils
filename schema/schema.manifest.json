@@ -18,13 +18,13 @@
       "compatibilty": []
     },
     "Lead": {
-      "_typeName": "Person",
+      "_typeName": "Lead",
       "aliases": [],
       "schemaUrl": "https://generic-schema.s3.us-east-2.amazonaws.com/lead.json",
       "compatibilty": []
     },
     "Contact": {
-      "_typeName": "Person",
+      "_typeName": "Contact",
       "aliases": [],
       "schemaUrl": "https://generic-schema.s3.us-east-2.amazonaws.com/contact.json",
       "compatibilty": []
