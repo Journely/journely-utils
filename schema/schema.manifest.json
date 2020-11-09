@@ -23,6 +23,12 @@
       "schemaUrl": "https://generic-schema.s3.us-east-2.amazonaws.com/lead.json",
       "compatibilty": []
     },
+    "Contact": {
+      "_typeName": "Person",
+      "aliases": [],
+      "schemaUrl": "https://generic-schema.s3.us-east-2.amazonaws.com/contact.json",
+      "compatibilty": []
+    },
     "File": {
       "_typeName": "File",
       "aliases": [],
