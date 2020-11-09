@@ -17,10 +17,10 @@
       "schemaUrl": "https://generic-schema.s3.us-east-2.amazonaws.com/news.json",
       "compatibilty": []
     },
-    "Person": {
+    "Lead": {
       "_typeName": "Person",
-      "aliases": ["Contact", "Lead"],
-      "schemaUrl": "https://generic-schema.s3.us-east-2.amazonaws.com/person.json",
+      "aliases": [],
+      "schemaUrl": "https://generic-schema.s3.us-east-2.amazonaws.com/lead.json",
       "compatibilty": []
     },
     "File": {
