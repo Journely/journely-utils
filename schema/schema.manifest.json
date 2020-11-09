@@ -47,6 +47,12 @@
       "schemaUrl": "https://generic-schema.s3.us-east-2.amazonaws.com/opportunity.json",
       "compatibilty": []
   },
+  "Account": {
+    "_typeName": "Account",
+    "aliases": [],
+    "schemaUrl": "https://generic-schema.s3.us-east-2.amazonaws.com/account.json",
+    "compatibilty": []
+  },
     "Task": {}
   }
   
