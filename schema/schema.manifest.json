@@ -55,7 +55,7 @@
   },
   "Ticket": {
     "_typeName": "Ticket",
-    "aliases": [],
+    "aliases": ["Case"],
     "schemaUrl": "https://generic-schema.s3.us-east-2.amazonaws.com/ticket.json",
     "compatibilty": []
   },
