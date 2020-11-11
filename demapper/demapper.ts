@@ -1,10 +1,10 @@
 const _ = require("lodash");
-const Joi =  require("@hapi/joi");
 const joiOptions = {
     allowUnknown: false,
     abortEarly: false
   };
 const DataObjectParser = require("dataobject-parser");
+
 module.exports.demapper = (payload, config, schema) => {
     let finalResp = [];
     if (!payload || payload.length === 0) {
