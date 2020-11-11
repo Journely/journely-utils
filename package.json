@@ -8,6 +8,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
     "@types/node": "^13.13.5",
     "axios": "^0.21.0",
     "dataobject-parser": "^1.2.1",

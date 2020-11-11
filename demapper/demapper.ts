@@ -1,6 +1,11 @@
-const _ = require("lodash")
+const _ = require("lodash");
+const Joi =  require("@hapi/joi");
+const joiOptions = {
+    allowUnknown: false,
+    abortEarly: false
+  };
 const DataObjectParser = require("dataobject-parser");
-module.exports.demapper = (payload, config) => {
+module.exports.demapper = (payload, config, schema) => {
     let finalResp = [];
     if (!payload || payload.length === 0) {
         return {
@@ -14,7 +19,24 @@ module.exports.demapper = (payload, config) => {
             "message": "Config is required"
         }
     }
+
     for (let i = 0; i < payload.length; i++) {
+        /** Joi validation */
+        const { error } = schema.validate(payload[i],joiOptions);
+        const errors = [];
+        if (error) { 
+            error.details.forEach((error) => {
+                errors.push(error.message);
+            });
+        }
+        /** If there is any error in Joi validation return the error */
+        if (errors && errors.length > 0){
+            const unifiedErrorMessage = errors.join(' and ');
+            return {
+                "error":true,
+                "message": unifiedErrorMessage
+            }
+        }
         payload[i] = {
             ...payload[i], ...payload[i].customFields
         };
