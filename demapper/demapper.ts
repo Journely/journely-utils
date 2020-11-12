@@ -1,6 +1,6 @@
 const _ = require("lodash");
 const joiOptions = {
-    allowUnknown: false,
+    allowUnknown: true,
     abortEarly: false
   };
 const DataObjectParser = require("dataobject-parser");
