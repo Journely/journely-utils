@@ -41,15 +41,17 @@ module.exports.demapper = (payload, config, schema) => {
             ...payload[i], ...payload[i].customFields
         };
         delete payload[i].customFields;
-        let result = deMap(payload[i]);
+        let flat = DataObjectParser.untranspose(payload[i])
+        let result = deMap(flat);
         let structured = DataObjectParser.transpose(result);
         finalResp.push(structured._data);
     }
 
     function deMap(payload) {
         let resp = payload;
+        console.log(payload)
         for (let [configKey, configValue] of Object.entries(config)) {
-            if (payload[configValue.targetField] || payload[configValue.targetField] === null) {
+            if ( _.has(payload, configValue.targetField)) {
                 resp[configKey] = payload[configValue.targetField];
                 delete resp[configValue.targetField];
             }
