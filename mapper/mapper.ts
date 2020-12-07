@@ -20,12 +20,10 @@ module.exports.mapper = async (payload, config, schemaType) => {
         }
     }
     if(schemaDetails && schemaDetails.schemaUrl){
-        console.time("getSchemaFromS3");
         const res = await axios.get(schemaDetails.schemaUrl);
         if(res.data){
             schema = res.data;
         }
-        console.timeEnd("getSchemaFromS3");
     }
     if (!schema) {
         return {
