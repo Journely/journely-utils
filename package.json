@@ -9,7 +9,7 @@
   "private": true,
   "dependencies": {
     "@types/node": "^13.13.5",
-    "axios": "^0.21.0",
+    "axios": "^0.21.1",
     "dataobject-parser": "^1.2.1",
     "graphql-request": "^1.8.2",
     "lodash": "^4.17.20",
