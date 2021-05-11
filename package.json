@@ -12,7 +12,7 @@
     "axios": "^0.21.0",
     "dataobject-parser": "^1.2.1",
     "graphql-request": "^1.8.2",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "ts-node": "^8.10.1",
     "typescript": "^3.8.3"
   }
